@@ -23,7 +23,7 @@ pipeline {
         }
          stage('test') {
             steps {
-              sh "mvn test -fn"
+              sh "mvn test -fn jacoco:prepare-agent jacoco:report"
             }
         }
     
@@ -37,7 +37,7 @@ pipeline {
                             -Dsonar.projectName=petclinic \
                             -Dsonar.projectKey=petclinic \
                             -Dsonar.java.binaries=. \
-                            -Dsonar.jacoco.reportPaths=target/jacoco.exec
+                            -Dsonar.jacoco.reportPaths=target/site/jacoco/jacoco.xml
                         
                             
                         """
