@@ -379,7 +379,15 @@
                 <groupId>org.jacoco</groupId>
                 <artifactId>jacoco-maven-plugin</artifactId>
                 <version>${jacoco-maven-plugin}</version>
-                <executions>
+                <configuration>
+                    <properties>
+                        <property>
+                            <name>sonar.coverage.jacoco.xmlReportPaths</name>
+                            <value>${project.build.directory}/site/jacoco/jacoco.xml</value>
+                        </property>
+                    </properties>
+                </configuration>
+                 <executions>
                     <execution>
                         <goals>
                             <goal>prepare-agent</goal>
